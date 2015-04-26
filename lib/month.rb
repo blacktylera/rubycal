@@ -27,9 +27,11 @@ def to_s
 	cal_string << month_name_year_head
 	cal_string << "\n"
 	cal_string << weekday_name_head
+	cal_string << "\n"
 
 	(1..day_count.to_i).each do |i|
 		 cal_string << "#{i.to_s}"
+		 cal_string << " "
 	end
 
 	cal_string

@@ -21,15 +21,21 @@ end
 def to_s
   cal_string = ""
   width = 20
-	month_name_year_head = "#{name} #{@year}".center(width).rstrip
-	weekday_name_head = "Su Mo Tu We Th Fr Sa"
+	month_name_year_head = "#{name} #{@year}".center(width).rstrip!
+	weekday_name_head = "Su Mo Tu We Th Fr Sa".center(width)
 
 	cal_string << month_name_year_head
 	cal_string << "\n"
 	cal_string << weekday_name_head
 
-	
+	(1..day_count.to_i).each do |i|
+		 cal_string << "#{i.to_s}"
+	end
+
+	cal_string
+
 
 
 end
 end
+

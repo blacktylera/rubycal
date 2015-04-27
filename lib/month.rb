@@ -19,11 +19,12 @@ def day_count
 end
 
 def to_s
-  cal_string = ""
+	cal_string = ""
   number_spacer = " "
   width = 20
 	month_name_year_head = "#{name} #{@year}".center(width).rstrip
 	weekday_name_head = "Su Mo Tu We Th Fr Sa".center(width).rstrip
+
 
 	cal_string << month_name_year_head
 	cal_string << "\n"

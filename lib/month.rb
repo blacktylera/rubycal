@@ -20,9 +20,10 @@ end
 
 def to_s
   cal_string = ""
+  number_spacer = " "
   width = 20
-	month_name_year_head = "#{name} #{@year}".center(width).rstrip!
-	weekday_name_head = "Su Mo Tu We Th Fr Sa".center(width)
+	month_name_year_head = "#{name} #{@year}".center(width).rstrip
+	weekday_name_head = "Su Mo Tu We Th Fr Sa".center(width).rstrip
 
 	cal_string << month_name_year_head
 	cal_string << "\n"
@@ -30,14 +31,30 @@ def to_s
 	cal_string << "\n"
 
 	(1..day_count.to_i).each do |i|
-		 cal_string << "#{i.to_s}"
-		 cal_string << " "
+		if i < 10
+			cal_string << number_spacer
+			cal_string << "#{i.to_s}"
+			if i % 7 == 0
+					cal_string << "\n"
+			else
+				cal_string << number_spacer
+			end
+		else
+			cal_string << "#{i.to_s}"
+				if i % 7 == 0
+					cal_string << "\n"
+				elsif i == day_count
+					cal_string << "\n"
+				else
+					cal_string << number_spacer
+				end
+		end
 	end
-
 	cal_string
-
-
-
 end
 end
+
+
+
+
 

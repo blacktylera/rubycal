@@ -1,12 +1,11 @@
 class Day
 
-  def initialize(month, day, year)
-    @day = day.to_i
+  def initialize(month, year)
     @month = month.to_i
     @year = year.to_i
   end
 
-  def weekday(month, day, year)
+  def weekday(month, year)
 
 
   ##########             ZELLER'S            ##########
@@ -18,23 +17,19 @@ class Day
   #congruence can be found at http://en.wikipedia.org/wiki/Zeller%27s_congruence.
 
 
-    if @month == 01 or @month == 1
+    if month == 01 or month == 1
       @month = 13
       @year -= 1
     end
 
-    if @month == 02 or @month == 2
+    if month == 02 or month == 2
       @month = 14
       @year -= 1
     end
 
-    q = @day
     m = @month
-    k = @year % 100
-    j = @year/100
-
-    #h = weekday
-
-    h = (q + ((13*(m+1))/5) + k + (k/4) +(j/4) + (5*j)) % 7
+    y = @year
+    day_of_month = 1
+    day_of_week = (day_of_month + ((26*(m+1))/10) + y + (y/4).floor + 6 * (y/100).floor + (y/400).floor) % 7
   end
 end

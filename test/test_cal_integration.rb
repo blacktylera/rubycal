@@ -17,7 +17,7 @@ EOS
   end
 
   def test_leap_years_divisible_by_400
-    output = `./cal.rb 02 2016`
+    output = `./cal.rb 02 2000`
     expected = <<EOS
    February 2000
 Su Mo Tu We Th Fr Sa
@@ -31,25 +31,17 @@ EOS
   end
 
   def test_leap_years_not_divisible_by_400
-    output = `./cal.rb 02 2016`
+    output = `./cal.rb 02 2300`
     expected = <<EOS
    February 2300
 Su Mo Tu We Th Fr Sa
-    1  2  3  4  5  6
- 7  8  9 10 11 12 13
-14 15 16 17 18 19 20
-21 22 23 24 25 26 27
-28
+             1  2  3
+ 4  5  6  7  8  9 10
+11 12 13 14 15 16 17
+18 19 20 21 22 23 24
+25 26 27 28
 EOS
     assert_equal expected, output
-  end
-
-  def test_unacceptable_month_input_characters
-    output = `./cal.rb 012 2012`
-    expected = <<EOS
-Date not in acceptable format/range.
-EOS
-	assert_equal expected, output
   end
 
   def test_unacceptable_month_input
@@ -140,7 +132,7 @@ EOS
   def test_mar_output
     output = `./cal.rb 03 2012`
     expected = <<EOS
-  March 2012
+     March 2012
 Su Mo Tu We Th Fr Sa
              1  2  3
  4  5  6  7  8  9 10
@@ -225,7 +217,7 @@ EOS
   def test_sep_output
     output = `./cal.rb 09 2012`
     expected = <<EOS
- September 2012
+   September 2012
 Su Mo Tu We Th Fr Sa
                    1
  2  3  4  5  6  7  8

@@ -36,30 +36,6 @@ EOS
     assert_equal expected, m.to_s
   end
 
-  def test_check_non_leap_year
-    m = Month.new(02, 2015)
-    expected = 28
-    assert_equal expected, m.to_s
-  end
-
-  def test_leap_year
-    m = Month.new(02, 2000)
-    expected = 29
-    assert_equal expected, m.to_s
-  end
 end
-
-  def test_march_days
-    m = Month.new(03, 2000)
-    expected = 31
-    assert_equal expected, m.to_s
-  end
-
-  def test_name_of_month
-   m = Month.new(07, 2013)
-   expected = 'July'
-   assert_equal expected, m.to_s
-  end
-
 
 
